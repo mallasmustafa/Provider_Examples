@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_example/config/theme.dart';
+import 'package:provider_example/provider/api_provider.dart';
 import 'package:provider_example/provider/counter_provider.dart';
 import 'package:provider_example/provider/slider_provider.dart';
 import 'package:provider_example/provider/theme_provider.dart';
@@ -13,6 +14,7 @@ void main() {
     ChangeNotifierProvider(create: (_) => CounterProvider()),
     ChangeNotifierProvider(create: (_) => SliderProvider()),
     ChangeNotifierProvider(create: (_) => ThemeProvider()),
+    ChangeNotifierProvider(create: (_) => ApiProvider()),
   ], child: const MyApp()));
 }
 

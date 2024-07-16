@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:provider_example/Pages/counter_page.dart';
-import 'package:provider_example/Pages/slider_example.dart';
-import 'package:provider_example/Pages/theme_example.dart';
+import 'package:provider_example/Pages/Api/get_api_calling.dart';
+import 'package:provider_example/Pages/counter/counter_page.dart';
+import 'package:provider_example/Pages/Slider/slider_example.dart';
+import 'package:provider_example/Pages/Theme/theme_example.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -37,6 +38,13 @@ class HomePage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(height: 30),
+              const Row(
+                children: [
+                  Text("Basic"),
+                ],
+              ),
+              const SizedBox(height: 10),
               ListTile(
                 onTap: () {
                   Get.to(const CounterPage());
@@ -63,6 +71,22 @@ class HomePage extends StatelessWidget {
                 },
                 title: const Text("Theme"),
                 leading: const Icon(Icons.palette),
+                tileColor: Colors.white,
+                splashColor: Colors.deepPurple,
+              ),
+              const SizedBox(height: 10),
+              const Row(
+                children: [
+                  Text("API with provider"),
+                ],
+              ),
+              const SizedBox(height: 10),
+              ListTile(
+                onTap: () {
+                  Get.to(const GetApiCalling());
+                },
+                title: const Text("Api Calling (Get)"),
+                leading: const Icon(Icons.api),
                 tileColor: Colors.white,
                 splashColor: Colors.deepPurple,
               ),

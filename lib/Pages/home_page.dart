@@ -6,6 +6,8 @@ import 'package:provider_example/Pages/counter/counter_page.dart';
 import 'package:provider_example/Pages/Slider/slider_example.dart';
 import 'package:provider_example/Pages/Theme/theme_example.dart';
 
+import 'Api/post_api_calling.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -86,6 +88,16 @@ class HomePage extends StatelessWidget {
                   Get.to(const GetApiCalling());
                 },
                 title: const Text("Api Calling (Get)"),
+                leading: const Icon(Icons.api),
+                tileColor: Colors.white,
+                splashColor: Colors.deepPurple,
+              ),
+              const SizedBox(height: 10),
+              ListTile(
+                onTap: () {
+                  Get.to(const PostApiCalling());
+                },
+                title: const Text("Api Calling (Post)"),
                 leading: const Icon(Icons.api),
                 tileColor: Colors.white,
                 splashColor: Colors.deepPurple,

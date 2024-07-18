@@ -24,4 +24,38 @@ class ApiProvider extends ChangeNotifier {
     isLoading = false;
     notifyListeners();
   }
+
+  Future<void> addProducts(
+      String title, double price, String description, String category) async {
+    try {
+      var newProduct = ProductModel(
+        // id: products.length + 1,
+        title: title,
+        price: price,
+        description: description,
+        image: "https://i.pravatar.cc",
+        category: category,
+      );
+      var response = await http.post(
+        Uri.parse(baseUrl),
+        body: jsonEncode(
+          newProduct.toJson(),
+        ),
+        headers: {"Content-Type": "application/json"},
+      );
+      print('Response body: ${response.body}');
+      print('Response status: ${response.statusCode}');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        print("Product added successfully");
+        title = "";
+        price = 0;
+        description = "";
+        category = "";
+        await getProducts();
+        notifyListeners();
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 }
